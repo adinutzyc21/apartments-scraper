@@ -1,6 +1,8 @@
-# Create a CSV to import into the Compare App
+# Apartments.com Scraper
 
-In particular, this parses an [apartments.com](apartments.com) search result based on some criteria that are present in the page. 
+Note: you can use this to create a CSV to (eventually, when I finish the code) import into the Compare App ([ideal-engine](https://github.com/adinutzyc21/ideal-engine), instance running [here](ideal-engine.herokuapp.com)).
+
+In particular, this parses an [apartments.com](apartments.com) search result based on some criteria that are present in the page. This is current as of April 11, 2017.
 
 It's a web scraper for the result listing and produces a CSV that has all the entries nicely parsed. 
 
