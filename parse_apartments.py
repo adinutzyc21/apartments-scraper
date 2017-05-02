@@ -23,11 +23,13 @@ def create_csv(page_url, maps_url, target_address, morning_arrival, evening_depa
     try:
         writer = csv.writer(csv_file)
         # this is the header (make sure it matches with the fields in write_parsed_to_csv)
-        writer.writerow(('Option Name', 'URL', 'Contact',
-                         'Address', 'Distance', 'Duration', 'Map',
-                         'Pet Policy', 'Parking', 'Gym', 'Kitchen',
-                         'Amenities', 'Features', 'Living Space',
+        writer.writerow(('Option Name', 'Contact',
+                         'Address', 'Size',
                          'Rent', 'Monthly Fees', 'One Time Fees',
+                         'Pet Policy',
+                         'Distance', 'Duration',
+                         'Parking', 'Gym', 'Kitchen',
+                         'Amenities', 'Features', 'Living Space',
                          'Lease Info', 'Services',
                          'Property Info', 'Indoor Info', 'Outdoor Info'))
 
@@ -74,12 +76,18 @@ def write_parsed_to_csv(page_url, maps_url, target_address,
         fields = parse_apartment_information(url, maps_url, target_address,
                                              morning_arrival, evening_departure)
 
+        # make this wiki markup
+        fields['name'] = '[' + fields['name'] + ']('+url+')'
+        fields['address'] = '[' + fields['address'] + '](' + fields['map'] + ')'
+
         # fill out the CSV file
-        writer.writerow((fields['name'], url, contact,
-                         fields['address'], fields['distance'], fields['duration'], fields['map'],
-                         fields['petPolicy'], fields['parking'], fields['gym'], fields['kitchen'],
-                         fields['amenities'], fields['features'], fields['space'],
+        writer.writerow((fields['name'], contact,
+                         fields['address'], fields['size'],
                          rent, fields['monthFees'], fields['onceFees'],
+                         fields['petPolicy'],
+                         fields['distance'], fields['duration'],
+                         fields['parking'], fields['gym'], fields['kitchen'],
+                         fields['amenities'], fields['features'], fields['space'],
                          fields['lease'], fields['services'],
                          fields['info'], fields['indoor'], fields['outdoor']))
 
@@ -115,6 +123,9 @@ def parse_apartment_information(url, maps_url, target_address,
 
     # get the address of the property
     get_property_address(soup, fields)
+
+    # get the size of the property
+    get_property_size(soup, fields)
 
     # get the link to open in maps
     fields['map'] = 'https://www.google.com/maps/place/' + fields['address'].replace(' ', '+')
@@ -180,6 +191,17 @@ def prettify_text(data):
     data = data.encode('utf8', 'ignore')
 
     return data
+
+def get_property_size(soup, fields):
+    """Given a beautifulSoup parsed page, extract the property size of the first one bedroom"""
+    #note: this might be wrong if there are multiple matches!!!
+
+    fields['size'] = ''
+    obj = soup.find('tr', {'data-beds': '1'})
+    if obj is not None:
+        data = obj.find('td', class_='sqft').getText()
+        data = prettify_text(data)
+        fields['size'] = data
 
 def get_features_and_info(soup, fields):
     """Given a beautifulSoup parsed page, extract the features and property information"""
