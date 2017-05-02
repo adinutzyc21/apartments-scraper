@@ -128,7 +128,8 @@ def parse_apartment_information(url, maps_url, target_address,
     get_property_size(soup, fields)
 
     # get the link to open in maps
-    fields['map'] = 'https://www.google.com/maps/place/' + fields['address'].replace(' ', '+')
+    fields['map'] = 'https://www.google.com/maps/dir/' + target_address.replace(' ', '+') + '/'\
+                    + fields['address'].replace(' ', '+') + '/data=!4m2!4m1!3e2'
 
     # get the distance and duration to the target address using the Google API
     get_distance_duration(maps_url, target_address, morning_arrival, evening_departure, fields)
