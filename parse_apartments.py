@@ -8,7 +8,8 @@ import sys
 import datetime
 from bs4 import BeautifulSoup
 
-def create_csv(page_url, maps_url, target_address, morning_arrival, evening_departure, fname):
+
+def create_csv(page_url, map_info, fname, pscores):
     """Create a CSV file with information that can be imported into ideal-engine"""
 
     # avoid the issue on Windows where there's an extra space every other line
@@ -17,31 +18,36 @@ def create_csv(page_url, maps_url, target_address, morning_arrival, evening_depa
         kwargs = {}
     else:
         access = 'wt'
-        kwargs = {'newline':''}
-
+        kwargs = {'newline': ''}
+    # open file for writing
     csv_file = open(fname, access, **kwargs)
+
+    # write to CSV
     try:
         writer = csv.writer(csv_file)
-        # this is the header (make sure it matches with the fields in write_parsed_to_csv)
-        writer.writerow(('Option Name', 'Contact',
-                         'Address', 'Size',
-                         'Rent', 'Monthly Fees', 'One Time Fees',
-                         'Pet Policy',
-                         'Distance', 'Duration',
-                         'Parking', 'Gym', 'Kitchen',
-                         'Amenities', 'Features', 'Living Space',
-                         'Lease Info', 'Services',
-                         'Property Info', 'Indoor Info', 'Outdoor Info'))
+        # this is the header (make sure it matches with the fields in
+        # write_parsed_to_csv)
+        header = ['Option Name', 'Contact', 'Address', 'Size',
+                  'Rent', 'Monthly Fees', 'One Time Fees',
+                  'Pet Policy', 'Distance',
+                  'Parking', 'Gym', 'Kitchen',
+                  'Amenities', 'Features', 'Living Space',
+                  'Lease Info', 'Services',
+                  'Property Info', 'Indoor Info', 'Outdoor Info']
+        # add the score fields if necessary
+        if pscores:
+            for i in xrange(len(header), 0, -1):
+                header.insert(i, 'score')
+        # write the header
+        writer.writerow(header)
 
         # parse current entire apartment list including pagination
-        write_parsed_to_csv(page_url, maps_url, target_address,
-                            morning_arrival, evening_departure, writer)
-
+        write_parsed_to_csv(page_url, map_info, writer, pscores)
     finally:
         csv_file.close()
 
-def write_parsed_to_csv(page_url, maps_url, target_address,
-                        morning_arrival, evening_departure, writer):
+
+def write_parsed_to_csv(page_url, map_info, writer, pscores):
     """Given the current page URL, extract the information from each apartment in the list"""
 
     # read the current page
@@ -73,23 +79,28 @@ def write_parsed_to_csv(page_url, maps_url, target_address,
             contact = obj.getText().strip()
 
         # get the other fields to write to the CSV
-        fields = parse_apartment_information(url, maps_url, target_address,
-                                             morning_arrival, evening_departure)
+        fields = parse_apartment_information(url, map_info)
 
         # make this wiki markup
-        fields['name'] = '[' + fields['name'] + ']('+url+')'
-        fields['address'] = '[' + fields['address'] + '](' + fields['map'] + ')'
+        fields['name'] = '[' + fields['name'] + '](' + url + ')'
+        fields['address'] = '[' + fields['address'] + \
+            '](' + fields['map'] + ')'
 
         # fill out the CSV file
-        writer.writerow((fields['name'], contact,
-                         fields['address'], fields['size'],
-                         rent, fields['monthFees'], fields['onceFees'],
-                         fields['petPolicy'],
-                         fields['distance'], fields['duration'],
-                         fields['parking'], fields['gym'], fields['kitchen'],
-                         fields['amenities'], fields['features'], fields['space'],
-                         fields['lease'], fields['services'],
-                         fields['info'], fields['indoor'], fields['outdoor']))
+        row = [fields['name'], contact,
+               fields['address'], fields['size'],
+               rent, fields['monthFees'], fields['onceFees'],
+               fields['petPolicy'], fields['distance'],
+               fields['parking'], fields['gym'], fields['kitchen'],
+               fields['amenities'], fields['features'], fields['space'],
+               fields['lease'], fields['services'],
+               fields['info'], fields['indoor'], fields['outdoor']]
+        # add the score fields if necessary
+        if pscores:
+            for i in xrange(len(row), 0, -1):
+                row.insert(i, '5')
+        # write the row
+        writer.writerow(row)
 
     # get the next page URL for pagination
     next_url = soup.find('a', class_='next')
@@ -99,19 +110,19 @@ def write_parsed_to_csv(page_url, maps_url, target_address,
 
     # get the actual next URL address
     next_url = next_url.get('href')
+
     # recurse until the last page
     if next_url is not None and next_url != 'javascript:void(0)':
-        write_parsed_to_csv(next_url, maps_url, target_address,
-                            morning_arrival, evening_departure, writer)
+        write_parsed_to_csv(next_url, map_info, writer, pscores)
 
-def parse_apartment_information(url, maps_url, target_address,
-                                morning_arrival, evening_departure):
+
+def parse_apartment_information(url, map_info):
     """For every apartment page, populate the required fields to be written to CSV"""
 
     # read the current page
     page = urllib2.urlopen(url).read()
 
-     # soupify the current page
+    # soupify the current page
     soup = BeautifulSoup(page, 'html.parser')
     soup.prettify()
 
@@ -128,11 +139,13 @@ def parse_apartment_information(url, maps_url, target_address,
     get_property_size(soup, fields)
 
     # get the link to open in maps
-    fields['map'] = 'https://www.google.com/maps/dir/' + target_address.replace(' ', '+') + '/'\
-                    + fields['address'].replace(' ', '+') + '/data=!4m2!4m1!3e2'
+    fields['map'] = 'https://www.google.com/maps/dir/' \
+                    + map_info['target_address'].replace(' ', '+') \
+                    + '/' + \
+        fields['address'].replace(' ', '+') + '/data=!4m2!4m1!3e2'
 
     # get the distance and duration to the target address using the Google API
-    get_distance_duration(maps_url, target_address, morning_arrival, evening_departure, fields)
+    get_distance_duration(map_info, fields)
 
     # get the one time and monthly fees
     get_fees(soup, fields)
@@ -175,10 +188,11 @@ def parse_apartment_information(url, maps_url, target_address,
 
     return fields
 
+
 def prettify_text(data):
     """Given a string, replace unicode chars and make it prettier"""
 
-     # format it nicely: replace multiple spaces with just one
+    # format it nicely: replace multiple spaces with just one
     data = re.sub(' +', ' ', data)
     # format it nicely: replace multiple new lines with just one
     data = re.sub('(\r?\n *)+', '\n', data)
@@ -193,6 +207,7 @@ def prettify_text(data):
 
     return data
 
+
 def get_property_size(soup, fields):
     """Given a beautifulSoup parsed page, extract the property size of the first one bedroom"""
     #note: this might be wrong if there are multiple matches!!!
@@ -203,6 +218,7 @@ def get_property_size(soup, fields):
         data = obj.find('td', class_='sqft').getText()
         data = prettify_text(data)
         fields['size'] = data
+
 
 def get_features_and_info(soup, fields):
     """Given a beautifulSoup parsed page, extract the features and property information"""
@@ -223,6 +239,7 @@ def get_features_and_info(soup, fields):
                 # format it nicely: remove trailing spaces
                 fields['info'] = data
 
+
 def get_field_based_on_class(soup, field, icon, fields):
     """Given a beautifulSoup parsed page, extract the specified field based on the icon"""
 
@@ -233,6 +250,7 @@ def get_field_based_on_class(soup, field, icon, fields):
         data = prettify_text(data)
 
         fields[field] = data
+
 
 def get_parking_info(soup, fields):
     """Given a beautifulSoup parsed page, extract the parking details"""
@@ -246,6 +264,7 @@ def get_parking_info(soup, fields):
         # format it nicely: remove trailing spaces
         fields['parking'] = data
 
+
 def get_pet_policy(soup, fields):
     """Given a beautifulSoup parsed page, extract the pet policy details"""
 
@@ -256,6 +275,7 @@ def get_pet_policy(soup, fields):
     # format it nicely: remove the trailing whitespace
     fields['petPolicy'] = data
 
+
 def get_fees(soup, fields):
     """Given a beautifulSoup parsed page, extract the one time and monthly fees"""
 
@@ -265,7 +285,8 @@ def get_fees(soup, fields):
     obj = soup.find('div', class_='monthlyFees')
     if obj is not None:
         for expense in obj.find_all('div', class_='fee'):
-            description = expense.find('div', class_='descriptionWrapper').getText()
+            description = expense.find(
+                'div', class_='descriptionWrapper').getText()
             description = prettify_text(description)
 
             price = expense.find('div', class_='priceWrapper').getText()
@@ -277,7 +298,8 @@ def get_fees(soup, fields):
     obj = soup.find('div', class_='oneTimeFees')
     if obj is not None:
         for expense in obj.find_all('div', class_='fee'):
-            description = expense.find('div', class_='descriptionWrapper').getText()
+            description = expense.find(
+                'div', class_='descriptionWrapper').getText()
             description = prettify_text(description)
 
             price = expense.find('div', class_='priceWrapper').getText()
@@ -289,41 +311,41 @@ def get_fees(soup, fields):
     fields['monthFees'] = fields['monthFees'].strip()
     fields['onceFees'] = fields['onceFees'].strip()
 
-def get_distance_duration(maps_url, target_address, morning_arrival, evening_departure, fields):
+
+def get_distance_duration(map_info, fields):
     """Use google API to return the distance and time to the target address"""
 
     fields['distance'] = ''
-    fields['duration'] = ''
 
     # get the distance and the time from google
     # getting to work in the morning
-    origin = target_address.replace(' ', '+')
+    origin = map_info['target_address'].replace(' ', '+')
     destination = fields['address'].replace(' ', '+')
-    url = maps_url + '&origins=' + origin + '&destinations=' + \
-                     destination  + '&arrival_time=' + morning_arrival
+    map_url = map_info['maps_url'] + '&origins=' + origin + '&destinations=' + \
+        destination + '&arrival_time=' + map_info['morning']
 
     # populate the distance / duration fields for morning
-    get_travel_time(url, fields, 'morning')
+    dist = get_travel_time(map_url, 'morning')
 
     # coming back from work in the evening
     origin = fields['address'].replace(' ', '+')
-    destination = target_address.replace(' ', '+')
-    url = maps_url + '&origins=' + origin + '&destinations=' + \
-                     destination + '&departure_time=' + evening_departure
+    destination = map_info['target_address'].replace(' ', '+')
+    map_url = map_info['maps_url'] + '&origins=' + origin + '&destinations=' + \
+        destination + '&departure_time=' + map_info['evening']
 
     # populate the distance / duration fields for evening
-    get_travel_time(url, fields, 'evening')
+    dist += get_travel_time(map_url, 'evening')
 
     # remove the extra newlines
-    fields['distance'] = fields['distance'].strip()
-    fields['duration'] = fields['duration'].strip()
+    fields['distance'] = dist.strip()
 
-def get_travel_time(url, fields, text):
+
+def get_travel_time(map_url, text):
     """Get the travel time from Google Maps distance matrix app given a URL"""
 
     try:
-        # read and parse the google maps distance / duration response from the api
-        search_response = urllib2.urlopen(url).read()
+        # read and parse the google maps distance / duration from the api
+        search_response = urllib2.urlopen(map_url).read()
 
         # get the distance from google maps
         obj = json.loads(search_response)
@@ -332,15 +354,16 @@ def get_travel_time(url, fields, text):
             obj = obj['rows'][0]['elements'][0]
             # extract the distance and duration
             if obj['status'] == 'OK':
-                dist = obj['distance']['text']
-                dur = obj['duration']['text']
-                # add it to a list
-                fields['distance'] += '* ' + text + ': ' + dist + '\n'
-                fields['duration'] += '* ' + text + ': ' + dur + '\n'
+                # return the info
+                return '* ' + text + ': ' + obj['distance']['text'] + \
+                    '(' + obj['duration']['text'] + ')\n'
 
     # ignore the errors, worst case they will be empty
     except (urllib2.HTTPError, urllib2.URLError):
         pass
+    # return the distance info
+    return ''
+
 
 def get_property_name(soup, fields):
     """Given a beautifulSoup parsed page, extract the name of the property"""
@@ -348,10 +371,11 @@ def get_property_name(soup, fields):
 
     # get the name of the property
     obj = soup.find('h1', class_='propertyName')
-    if obj is not  None:
+    if obj is not None:
         name = obj.getText()
         name = prettify_text(name)
         fields['name'] = name
+
 
 def get_property_address(soup, fields):
     """Given a beautifulSoup parsed page, extract the full address of the property"""
@@ -394,6 +418,7 @@ def get_property_address(soup, fields):
 
     fields['address'] = address
 
+
 def parse_config_times(given_time):
     """Convert the tomorrow at given_time New York time to seconds since epoch"""
 
@@ -412,28 +437,45 @@ def parse_config_times(given_time):
     time_since_epoch = (date_time - epoch).total_seconds()
     return str(int(time_since_epoch))
 
+
 def main():
     """Read from the config file"""
+
     conf = ConfigParser.ConfigParser()
     conf.read('config.ini')
 
-    url = conf.get('all', 'fullURL')
-    maps_api_key = conf.get('all', 'mapsAPIKey')
-    maps_url = conf.get('all', 'mapsURL')
-    target_address = conf.get('all', 'targetAddress')
+    # get the apartments.com search URL
+    apartments_url = conf.get('all', 'apartmentsURL')
+
+    # get the name of the output file
     fname = conf.get('all', 'fname') + '.csv'
 
-    morning_arrival = conf.get('all', 'morning')
-    evening_departure = conf.get('all', 'evening')
+    # should this also print the scores
+    pscores = (conf.get('all', 'printScores') in [
+               'T', 't', '1', 'True', 'true'])
 
-    # convert these to seconds since epoch, EST tomorrow
-    morning_arrival = parse_config_times(morning_arrival)
-    evening_departure = parse_config_times(evening_departure)
+    # create a dict to pass in all of the Google Maps info to have fewer params
+    map_info = {}
+
+    # get the Google Maps information
+    map_info['maps_url'] = conf.get('all', 'mapsURL')
+    units = conf.get('all', 'mapsUnits')
+    mode = conf.get('all', 'mapsMode')
+    routing = conf.get('all', 'mapsTransitRouting')
+    api_key = conf.get('all', 'mapsAPIKey')
+    map_info['target_address'] = conf.get('all', 'targetAddress')
+
+    # get the times for going to / coming back from work
+    # and convert these to seconds since epoch, EST tomorrow
+    map_info['morning'] = parse_config_times(conf.get('all', 'morning'))
+    map_info['evening'] = parse_config_times(conf.get('all', 'evening'))
 
     # create the maps URL so we don't pass all the parameters
-    maps_url += '&key=' + maps_api_key
+    map_info['maps_url'] += 'units=' + units + '&mode=' + mode + \
+        '&transit_routing_preference=' + routing + '&key=' + api_key
 
-    create_csv(url, maps_url, target_address, morning_arrival, evening_departure, fname)
+    create_csv(apartments_url, map_info, fname, pscores)
+
 
 if __name__ == '__main__':
     main()
