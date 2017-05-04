@@ -356,7 +356,7 @@ def get_travel_time(map_url, text):
             if obj['status'] == 'OK':
                 # return the info
                 return '* ' + text + ': ' + obj['distance']['text'] + \
-                    '(' + obj['duration']['text'] + ')\n'
+                    ' (' + obj['duration']['text'] + ')\n'
 
     # ignore the errors, worst case they will be empty
     except (urllib2.HTTPError, urllib2.URLError):
