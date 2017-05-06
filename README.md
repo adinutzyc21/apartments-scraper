@@ -7,7 +7,7 @@ In particular, this parses an [apartments.com](apartments.com) search result bas
 It's a web scraper for the result listing and produces a CSV that has all the entries nicely parsed. 
 
 These are the criteria I'm using:
-`'Option Name', 'Contact', 'Address', 'Size', 'Rent', 'Monthly Fees', 'One Time Fees', 'Pet Policy', 'Distance', 'Parking', 'Gym', 'Kitchen', 'Amenities', 'Features', 'Living Space', 'Lease Info', 'Services', 'Property Info', 'Indoor Info', 'Outdoor Info'` and they come from the entries that apartments.com shows on the page as well as from the Google Maps API (given an address to commute to, I am getting the approximate transit distance and time).
+`'Option Name', 'Contact', 'Address', 'Size', 'Rent', 'Monthly Fees', 'One Time Fees', 'Pet Policy', 'Distance', 'Duration', 'Parking', 'Gym', 'Kitchen', 'Amenities', 'Features', 'Living Space', 'Lease Info', 'Services', 'Property Info', 'Indoor Info', 'Outdoor Info'` and they come from the entries that apartments.com shows on the page as well as from the Google Maps API (given an address to commute to, I am getting the approximate transit distance and duration to a destination address).
 
 ### How to use:
 
@@ -26,7 +26,7 @@ In order to generate the CSV file:
     - Replace the parenthesis after "targetAddress:" in config.ini with the copied address.
 1. If you want to change the units between metric and imperial, change the "mapsUnits:" field.
 1. If you want directions with a specific mode of transportation, alter "mapsMode:". See more options on [Google's API site](https://developers.google.com/maps/documentation/distance-matrix/).
-    - If the maps mode is transit, you might want to als fill out the "mapsTransitRouting:" field (alternatives are fewer_transfers and less_walking; they may only be available to paying Maps API customers). 
+    - If the maps mode is transit, you might want to also fill out the "mapsTransitRouting:" field (alternatives are fewer_transfers and less_walking; they may only be available to paying Maps API customers). 
 1. If you want, change the morning and evening commute times. The morning one is the time you want to arrive at destination and the evening one is the time you want to leave (work). The Google API search is for tomorrow (next day) at these times. You can replace these times but keep the format HH:mm AM / PM.
 1. You can also change the "printScores:" field to true, which will also print default scores for all options/criteria. This is mostly for my testing purposes for compareApp. Please note that compareApp works even if this is set to false and no scores are present.
 1. If you want your output file to be named something other than output.csv, change the name of the file (output) after the "fname:" field.

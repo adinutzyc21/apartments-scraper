@@ -29,7 +29,7 @@ def create_csv(page_url, map_info, fname, pscores):
         # write_parsed_to_csv)
         header = ['Option Name', 'Contact', 'Address', 'Size',
                   'Rent', 'Monthly Fees', 'One Time Fees',
-                  'Pet Policy', 'Distance',
+                  'Pet Policy', 'Distance', 'Duration',
                   'Parking', 'Gym', 'Kitchen',
                   'Amenities', 'Features', 'Living Space',
                   'Lease Info', 'Services',
@@ -40,6 +40,7 @@ def create_csv(page_url, map_info, fname, pscores):
                 header.insert(i, 5)
             # flag that we're importing with scores
             header[1] = 'score'
+            header.append('modifier')
         # write the header
         writer.writerow(header)
 
@@ -92,7 +93,7 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores):
         row = [fields['name'], contact,
                fields['address'], fields['size'],
                rent, fields['monthFees'], fields['onceFees'],
-               fields['petPolicy'], fields['distance'],
+               fields['petPolicy'], fields['distance'], fields['duration'],
                fields['parking'], fields['gym'], fields['kitchen'],
                fields['amenities'], fields['features'], fields['space'],
                fields['lease'], fields['services'],
@@ -101,6 +102,7 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores):
         if pscores:
             for i in xrange(len(row), 0, -1):
                 row.insert(i, '5')
+            row.append('0')
         # write the row
         writer.writerow(row)
 
@@ -318,6 +320,7 @@ def get_distance_duration(map_info, fields):
     """Use google API to return the distance and time to the target address"""
 
     fields['distance'] = ''
+    fields['duration'] = ''
 
     # get the distance and the time from google
     # getting to work in the morning
@@ -327,7 +330,7 @@ def get_distance_duration(map_info, fields):
         destination + '&arrival_time=' + map_info['morning']
 
     # populate the distance / duration fields for morning
-    dist = get_travel_time(map_url, 'morning')
+    travel_morning = get_travel_time(map_url)
 
     # coming back from work in the evening
     origin = fields['address'].replace(' ', '+')
@@ -336,14 +339,29 @@ def get_distance_duration(map_info, fields):
         destination + '&departure_time=' + map_info['evening']
 
     # populate the distance / duration fields for evening
-    dist += get_travel_time(map_url, 'evening')
+    travel_evening = get_travel_time(map_url)
 
-    # remove the extra newlines
-    fields['distance'] = dist.strip()
+    # take the average
+    fields['distance'] = average_field(travel_morning, travel_evening, 'distance')
+    fields['duration'] = average_field(travel_morning, travel_evening, 'duration')
 
+def average_field(obj1, obj2, field):
+    """Take the average given two objects that have field values followed by (same) unit"""
+    val1 = float(prettify_text(obj1[field]).split()[0])
+    val2 = float(prettify_text(obj2[field]).split()[0])
+    unit = ' ' + prettify_text(obj1[field]).split()[1]
 
-def get_travel_time(map_url, text):
-    """Get the travel time from Google Maps distance matrix app given a URL"""
+    avg = 0.5 * (val1 + val2)
+    if(field == 'duration'):
+        avg = int(avg)
+    
+    return str(avg) + unit
+
+def get_travel_time(map_url):
+    """Get the travel distance & time from Google Maps distance matrix app given a URL"""
+
+    # the travel info dict
+    travel = {}
 
     try:
         # read and parse the google maps distance / duration from the api
@@ -356,15 +374,16 @@ def get_travel_time(map_url, text):
             obj = obj['rows'][0]['elements'][0]
             # extract the distance and duration
             if obj['status'] == 'OK':
-                # return the info
-                return '* ' + text + ': ' + obj['distance']['text'] + \
-                    ' (' + obj['duration']['text'] + ')\n'
+                # get the info
+                travel['distance'] = obj['distance']['text']
+                travel['duration'] = obj['duration']['text']
 
     # ignore the errors, worst case they will be empty
     except (urllib2.HTTPError, urllib2.URLError):
         pass
-    # return the distance info
-    return ''
+
+    # return the travel info
+    return travel
 
 
 def get_property_name(soup, fields):
