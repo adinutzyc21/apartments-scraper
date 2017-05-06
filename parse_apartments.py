@@ -37,7 +37,9 @@ def create_csv(page_url, map_info, fname, pscores):
         # add the score fields if necessary
         if pscores:
             for i in xrange(len(header), 0, -1):
-                header.insert(i, 'score')
+                header.insert(i, 5)
+            # flag that we're importing with scores
+            header[1] = 'score'
         # write the header
         writer.writerow(header)
 
