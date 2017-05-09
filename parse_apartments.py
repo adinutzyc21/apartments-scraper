@@ -33,7 +33,8 @@ def create_csv(page_url, map_info, fname, pscores):
                   'Parking', 'Gym', 'Kitchen',
                   'Amenities', 'Features', 'Living Space',
                   'Lease Info', 'Services',
-                  'Property Info', 'Indoor Info', 'Outdoor Info']
+                  'Property Info', 'Indoor Info', 'Outdoor Info',
+                  'Images', 'Description']
         # add the score fields if necessary
         if pscores:
             for i in xrange(len(header), 0, -1):
@@ -97,7 +98,8 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores):
                fields['parking'], fields['gym'], fields['kitchen'],
                fields['amenities'], fields['features'], fields['space'],
                fields['lease'], fields['services'],
-               fields['info'], fields['indoor'], fields['outdoor']]
+               fields['info'], fields['indoor'], fields['outdoor'],
+               fields['img'], fields['desc']]
         # add the score fields if necessary
         if pscores:
             for i in xrange(len(row), 0, -1):
@@ -189,6 +191,10 @@ def parse_apartment_information(url, map_info):
 
     # get the 'property information'
     get_features_and_info(soup, fields)
+
+    # get the images as a list
+
+    # get the description section
 
     return fields
 
