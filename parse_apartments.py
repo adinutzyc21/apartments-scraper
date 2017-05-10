@@ -87,8 +87,7 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores):
 
         # make this wiki markup
         fields['name'] = '[' + fields['name'] + '](' + url + ')'
-        fields['address'] = '[' + fields['address'] + \
-            '](' + fields['map'] + ')'
+        fields['address'] = '[' + fields['address'] + '](' + fields['map'] + ')'
 
         # fill out the CSV file
         row = [fields['name'], contact,
@@ -99,7 +98,7 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores):
                fields['amenities'], fields['features'], fields['space'],
                fields['lease'], fields['services'],
                fields['info'], fields['indoor'], fields['outdoor'],
-               fields['img'], fields['desc']]
+               fields['img'], fields['description']]
         # add the score fields if necessary
         if pscores:
             for i in xrange(len(row), 0, -1):
@@ -146,15 +145,20 @@ def parse_apartment_information(url, map_info):
 
     # get the link to open in maps
     fields['map'] = 'https://www.google.com/maps/dir/' \
-                    + map_info['target_address'].replace(' ', '+') \
-                    + '/' + \
-        fields['address'].replace(' ', '+') + '/data=!4m2!4m1!3e2'
+                    + map_info['target_address'].replace(' ', '+') + '/' \
+                    + fields['address'].replace(' ', '+') + '/data=!4m2!4m1!3e2'
 
     # get the distance and duration to the target address using the Google API
     get_distance_duration(map_info, fields)
 
     # get the one time and monthly fees
     get_fees(soup, fields)
+
+    # get the images as a list
+    get_images(soup, fields)
+
+    # get the description section
+    get_description(soup, fields)
 
     # only look in this section (other sections are for example for printing)
     soup = soup.find('section', class_='specGroup js-specGroup')
@@ -192,12 +196,7 @@ def parse_apartment_information(url, map_info):
     # get the 'property information'
     get_features_and_info(soup, fields)
 
-    # get the images as a list
-
-    # get the description section
-
     return fields
-
 
 def prettify_text(data):
     """Given a string, replace unicode chars and make it prettier"""
@@ -217,6 +216,28 @@ def prettify_text(data):
 
     return data
 
+
+def get_images(soup, fields):
+    """Get the images of the apartment"""
+
+    fields['img'] = ''
+
+    # find ul with id fullCarouselCollection
+    soup = soup.find('ul', {'id': 'fullCarouselCollection'})
+    if soup is not None:
+        for img in soup.find_all('img'):
+            fields['img'] += '![' + img['alt'] + '](' + img['src'] + ') '
+
+def get_description(soup, fields):
+    """Get the description for the apartment"""
+
+    fields['description'] = ''
+
+    # find p with itemprop description
+    obj = soup.find('p', {'itemprop': 'description'})
+
+    if obj is not None:
+        fields['description'] = prettify_text(obj.getText())
 
 def get_property_size(soup, fields):
     """Given a beautifulSoup parsed page, extract the property size of the first one bedroom"""
@@ -358,9 +379,9 @@ def average_field(obj1, obj2, field):
     unit = ' ' + prettify_text(obj1[field]).split()[1]
 
     avg = 0.5 * (val1 + val2)
-    if(field == 'duration'):
+    if field == 'duration':
         avg = int(avg)
-    
+
     return str(avg) + unit
 
 def get_travel_time(map_url):
@@ -478,8 +499,7 @@ def main():
     fname = conf.get('all', 'fname') + '.csv'
 
     # should this also print the scores
-    pscores = (conf.get('all', 'printScores') in [
-               'T', 't', '1', 'True', 'true'])
+    pscores = (conf.get('all', 'printScores') in ['T', 't', '1', 'True', 'true'])
 
     # create a dict to pass in all of the Google Maps info to have fewer params
     map_info = {}
