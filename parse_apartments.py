@@ -1,13 +1,18 @@
 """Parse an apartments.com search result page and export to CSV."""
-import urllib2
+
 import csv
 import json
-import ConfigParser
 import re
 import sys
 import datetime
+import requests
 from bs4 import BeautifulSoup
 
+# Config parser was renamed in Python 3
+try:
+    import configparser
+except ImportError:
+    import ConfigParser as configparser
 
 def create_csv(page_url, map_info, fname, pscores):
     """Create a CSV file with information that can be imported into ideal-engine"""
@@ -55,11 +60,11 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores):
     """Given the current page URL, extract the information from each apartment in the list"""
 
     # read the current page
-    page = urllib2.urlopen(page_url).read()
+    page = requests.get(page_url)
+ 
     # soupify the current page
-    soup = BeautifulSoup(page, 'html.parser')
+    soup = BeautifulSoup(page.content, 'html.parser')
     soup.prettify()
-
     # only look in this region
     soup = soup.find('div', class_='placardContainer')
 
@@ -69,7 +74,7 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores):
         rent = ''
         contact = ''
 
-        # get the URL href
+        if item.find('a', class_='placardTitle') is None: continue
         url = item.find('a', class_='placardTitle').get('href')
 
         # get the rent and parse it to unicode
@@ -125,10 +130,10 @@ def parse_apartment_information(url, map_info):
     """For every apartment page, populate the required fields to be written to CSV"""
 
     # read the current page
-    page = urllib2.urlopen(url).read()
+    page = requests.get(url)
 
     # soupify the current page
-    soup = BeautifulSoup(page, 'html.parser')
+    soup = BeautifulSoup(page.content, 'html.parser')
     soup.prettify()
 
     # the information we need to return as a dict
@@ -214,13 +219,15 @@ def prettify_text(data):
     # format it nicely: encode it, removing special symbols
     data = data.encode('utf8', 'ignore')
 
-    return data
+    return str(data,'utf-8')
 
 
 def get_images(soup, fields):
     """Get the images of the apartment"""
 
     fields['img'] = ''
+
+    if soup is None: return
 
     # find ul with id fullCarouselCollection
     soup = soup.find('ul', {'id': 'fullCarouselCollection'})
@@ -233,6 +240,8 @@ def get_description(soup, fields):
 
     fields['description'] = ''
 
+    if soup is None: return
+
     # find p with itemprop description
     obj = soup.find('p', {'itemprop': 'description'})
 
@@ -244,6 +253,9 @@ def get_property_size(soup, fields):
     #note: this might be wrong if there are multiple matches!!!
 
     fields['size'] = ''
+
+    if soup is None: return
+    
     obj = soup.find('tr', {'data-beds': '1'})
     if obj is not None:
         data = obj.find('td', class_='sqft').getText()
@@ -256,6 +268,9 @@ def get_features_and_info(soup, fields):
 
     fields['features'] = ''
     fields['info'] = ''
+
+    if soup is None: return
+    
     obj = soup.find('i', class_='propertyIcon')
 
     if obj is not None:
@@ -275,6 +290,9 @@ def get_field_based_on_class(soup, field, icon, fields):
     """Given a beautifulSoup parsed page, extract the specified field based on the icon"""
 
     fields[field] = ''
+
+    if soup is None: return
+    
     obj = soup.find('i', class_=icon)
     if obj is not None:
         data = obj.parent.findNext('ul').getText()
@@ -287,6 +305,9 @@ def get_parking_info(soup, fields):
     """Given a beautifulSoup parsed page, extract the parking details"""
 
     fields['parking'] = ''
+
+    if soup is None: return
+    
     obj = soup.find('div', class_='parkingDetails')
     if obj is not None:
         data = obj.getText()
@@ -298,10 +319,17 @@ def get_parking_info(soup, fields):
 
 def get_pet_policy(soup, fields):
     """Given a beautifulSoup parsed page, extract the pet policy details"""
-
+    if soup is None:
+        fields['petPolicy'] = ''
+        return
+    
     # the pet policy
-    data = soup.find('div', class_='petPolicyDetails').getText()
-    data = prettify_text(data)
+    data = soup.find('div', class_='petPolicyDetails')
+    if data is None:
+        data = ''
+    else:
+        data = data.getText()
+        data = prettify_text(data)
 
     # format it nicely: remove the trailing whitespace
     fields['petPolicy'] = data
@@ -312,6 +340,8 @@ def get_fees(soup, fields):
 
     fields['monthFees'] = ''
     fields['onceFees'] = ''
+
+    if soup is None: return
 
     obj = soup.find('div', class_='monthlyFees')
     if obj is not None:
@@ -358,7 +388,7 @@ def get_distance_duration(map_info, fields):
 
     # populate the distance / duration fields for morning
     travel_morning = get_travel_time(map_url)
-
+    
     # coming back from work in the evening
     origin = fields['address'].replace(' ', '+')
     destination = map_info['target_address'].replace(' ', '+')
@@ -390,24 +420,17 @@ def get_travel_time(map_url):
     # the travel info dict
     travel = {}
 
-    try:
-        # read and parse the google maps distance / duration from the api
-        search_response = urllib2.urlopen(map_url).read()
-
-        # get the distance from google maps
-        obj = json.loads(search_response)
-        # the status might not be OK, ignore this in that case
-        if obj['status'] == 'OK':
-            obj = obj['rows'][0]['elements'][0]
-            # extract the distance and duration
-            if obj['status'] == 'OK':
-                # get the info
-                travel['distance'] = obj['distance']['text']
-                travel['duration'] = obj['duration']['text']
-
-    # ignore the errors, worst case they will be empty
-    except (urllib2.HTTPError, urllib2.URLError):
-        pass
+    # read and parse the google maps distance / duration from the api
+    response = requests.get(map_url).json()
+    
+    # the status might not be OK, ignore this in that case
+    if response['status'] == 'OK':
+        response = response['rows'][0]['elements'][0]
+        # extract the distance and duration
+        if response['status'] == 'OK':
+            # get the info
+            travel['distance'] = response['distance']['text']
+            travel['duration'] = response['duration']['text']
 
     # return the travel info
     return travel
@@ -489,7 +512,7 @@ def parse_config_times(given_time):
 def main():
     """Read from the config file"""
 
-    conf = ConfigParser.ConfigParser()
+    conf = configparser.ConfigParser()
     conf.read('config.ini')
 
     # get the apartments.com search URL
