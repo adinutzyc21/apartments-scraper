@@ -2,7 +2,7 @@
 
 Note: you can use this to create a CSV to (eventually, when I finish the code) import into the Compare App ([ideal-engine](https://github.com/adinutzyc21/ideal-engine), instance running [here](ideal-engine.herokuapp.com)).
 
-In particular, this parses an [apartments.com](apartments.com) search result based on some criteria that are present in the page. This is current as of May 5, 2017.
+In particular, this parses an [apartments.com](apartments.com) search result based on some criteria that are present in the page. This is current as of August 4, 2017.
 
 It's a web scraper for the result listing and produces a CSV that has all the entries nicely parsed. 
 
@@ -11,9 +11,11 @@ These are the criteria I'm using:
 
 ### How to use:
 
-Please note that this assumes you have python installed. I am using Python 2.7 but it should work with Python 3+ too.
+Please note that this assumes you have Python installed. It works with Python 2.7 and Python 3.5+.
 You can install Python from [here](https://www.python.org/downloads/). 
-You also need to install beautifulsoup4 from [here](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) and you'll probably need `pip` to do that (`python -m pip install beautifulsoup4` on Windows should do it).
+You also need to install 
+* beautifulsoup4 from [here](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) and you'll probably need `pip` to do that (`python -m pip install beautifulsoup4` on Windows should do it).
+* requests either through pip ('python -m pip install requests') or directions for your setup found [here](http://docs.python-guide.org/en/latest/starting/installation/)
 
 In order to generate the CSV file:
 
