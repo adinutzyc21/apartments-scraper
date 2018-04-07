@@ -219,7 +219,7 @@ def prettify_text(data):
     # format it nicely: encode it, removing special symbols
     data = data.encode('utf8', 'ignore')
 
-    return str(data,'utf-8')
+    return str(data).encode('utf-8')
 
 
 def get_images(soup, fields):
