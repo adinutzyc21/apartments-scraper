@@ -60,7 +60,8 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores):
     """Given the current page URL, extract the information from each apartment in the list"""
 
     # read the current page
-    page = requests.get(page_url)
+    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'}
+    page = requests.get(page_url, headers=headers)
  
     # soupify the current page
     soup = BeautifulSoup(page.content, 'html.parser')
@@ -130,7 +131,8 @@ def parse_apartment_information(url, map_info):
     """For every apartment page, populate the required fields to be written to CSV"""
 
     # read the current page
-    page = requests.get(url)
+    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'}
+    page = requests.get(url, headers=headers)
 
     # soupify the current page
     soup = BeautifulSoup(page.content, 'html.parser')
