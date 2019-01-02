@@ -2,12 +2,16 @@
 
 Note: you can use this to create a CSV to (eventually, when I finish the code) import into the Compare App ([ideal-engine](https://github.com/adinutzyc21/ideal-engine), instance running [here](ideal-engine.herokuapp.com)).
 
-In particular, this parses an [apartments.com](apartments.com) search result based on some criteria that are present in the page. This is current as of August 4, 2017.
+In particular, this parses an [apartments.com](apartments.com) search result based on some criteria that are present in the page. This is current as of January 1, 2019.
 
 It's a web scraper for the result listing and produces a CSV that has all the entries nicely parsed. 
 
 These are the criteria I'm using:
 `'Option Name', 'Contact', 'Address', 'Size', 'Rent', 'Monthly Fees', 'One Time Fees', 'Pet Policy', 'Distance', 'Duration', 'Parking', 'Gym', 'Kitchen', 'Amenities', 'Features', 'Living Space', 'Lease Info', 'Services', 'Property Info', 'Indoor Info', 'Outdoor Info'` and they come from the entries that apartments.com shows on the page as well as from the Google Maps API (given an address to commute to, I am getting the approximate transit distance and duration to a destination address).
+
+### Google Maps API Change Note:
+
+Since Google Maps now requires billing to be enabled in order to use the API, I have added made it default to skip calculating the distance and duration. Turn `useGoogleMaps` to `true` in `config.ini` if you do have a Google Maps key. The code might not work since I haven't felt comfortable with turning billing on, so I haven't been able to test. Feel free to submit a PR if you check and something is broken.
 
 ### How to use:
 
