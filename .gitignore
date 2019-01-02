@@ -1,3 +1,4 @@
 *.csv
 config.ini
 .DS_Store
+.vscode
