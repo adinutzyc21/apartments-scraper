@@ -122,9 +122,11 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores):
     # get the actual next URL address
     next_url = next_url.get('href')
 
+    if next_url is None or next_url == '' or next_url == 'javascript:void(0)':
+        return
+
     # recurse until the last page
-    if next_url is not None and next_url != 'javascript:void(0)':
-        write_parsed_to_csv(next_url, map_info, writer, pscores)
+    write_parsed_to_csv(next_url, map_info, writer, pscores)
 
 
 def parse_apartment_information(url, map_info):
@@ -149,14 +151,6 @@ def parse_apartment_information(url, map_info):
 
     # get the size of the property
     get_property_size(soup, fields)
-
-    # get the link to open in maps
-    fields['map'] = 'https://www.google.com/maps/dir/' \
-                    + map_info['target_address'].replace(' ', '+') + '/' \
-                    + fields['address'].replace(' ', '+') + '/data=!4m2!4m1!3e2'
-
-    # get the distance and duration to the target address using the Google API
-    get_distance_duration(map_info, fields)
 
     # get the one time and monthly fees
     get_fees(soup, fields)
@@ -202,6 +196,17 @@ def parse_apartment_information(url, map_info):
 
     # get the 'property information'
     get_features_and_info(soup, fields)
+
+    # get the link to open in maps
+    fields['map'] = 'https://www.google.com/maps/dir/' \
+                    + map_info['target_address'].replace(' ', '+') + '/' \
+                    + fields['address'].replace(' ', '+') + '/data=!4m2!4m1!3e2'
+
+    fields['distance'] = ''
+    fields['duration'] = ''
+    if map_info['use_google_maps']:
+        # get the distance and duration to the target address using the Google API
+        get_distance_duration(map_info, fields)
 
     return fields
 
@@ -449,45 +454,33 @@ def get_property_name(soup, fields):
         name = prettify_text(name)
         fields['name'] = name
 
+def find_addr(script, tag):
+    """Given a script and a tag, use python find to find the text after tag"""
+
+    tag = tag + ": \'"
+    start = script.find(tag)+len(tag)
+    end = script.find("\',", start)
+    return script[start : end]
 
 def get_property_address(soup, fields):
     """Given a beautifulSoup parsed page, extract the full address of the property"""
 
-    # create the address from parts connected by comma (except zip code)
-    address = []
+    address = ""
 
-    # this can be either inside the tags or as a value for "content"
-    obj = soup.find(itemprop='streetAddress')
-    text = obj.get('content')
-    if text is None:
-        text = obj.getText()
-    text = prettify_text(text)
-    address.append(text)
+    # They changed how this works so I need to grab the script
+    script = soup.findAll('script', type='text/javascript')[2].text
+    
+    # The address is everything in quotes after listingAddress
+    address = find_addr(script, "listingAddress")
 
-    obj = soup.find(itemprop='addressLocality')
-    text = obj.get('content')
-    if text is None:
-        text = obj.getText()
-    text = prettify_text(text)
-    address.append(text)
+    # City
+    address += ", " + find_addr(script, "listingCity")
 
-    obj = soup.find(itemprop='addressRegion')
-    text = obj.get('content')
-    if text is None:
-        text = obj.getText()
-    text = prettify_text(text)
-    address.append(text)
+    # State
+    address += ", " + find_addr(script, "listingState")
 
-    # join the addresses on comma before getting the zip
-    address = ', '.join(address)
-
-    obj = soup.find(itemprop='postalCode')
-    text = obj.get('content')
-    if text is None:
-        text = obj.getText()
-    text = prettify_text(text)
-    # put the zip with a space before it
-    address += ' ' + text
+    # Zip Code
+    address += " " + find_addr(script, "listingZip")
 
     fields['address'] = address
 
@@ -510,9 +503,8 @@ def parse_config_times(given_time):
     time_since_epoch = (date_time - epoch).total_seconds()
     return str(int(time_since_epoch))
 
-
 def main():
-    """Read from the config file"""
+    """Read from the config file and get the Google maps info optionally"""
 
     conf = configparser.ConfigParser()
     conf.read('config.ini')
@@ -529,22 +521,29 @@ def main():
     # create a dict to pass in all of the Google Maps info to have fewer params
     map_info = {}
 
-    # get the Google Maps information
-    map_info['maps_url'] = conf.get('all', 'mapsURL')
-    units = conf.get('all', 'mapsUnits')
-    mode = conf.get('all', 'mapsMode')
-    routing = conf.get('all', 'mapsTransitRouting')
-    api_key = conf.get('all', 'mapsAPIKey')
+    # get the target address for Maps URL / calculations
     map_info['target_address'] = conf.get('all', 'targetAddress')
 
-    # get the times for going to / coming back from work
-    # and convert these to seconds since epoch, EST tomorrow
-    map_info['morning'] = parse_config_times(conf.get('all', 'morning'))
-    map_info['evening'] = parse_config_times(conf.get('all', 'evening'))
+    # get the Google Maps information
 
-    # create the maps URL so we don't pass all the parameters
-    map_info['maps_url'] += 'units=' + units + '&mode=' + mode + \
-        '&transit_routing_preference=' + routing + '&key=' + api_key
+    # should use Google Maps? 
+    # maybe not since you have to provide credit card info, the URL will still work
+    map_info['use_google_maps'] = conf.get('all', 'useGoogleMaps') in ['T', 't', '1', 'True', 'true']
+
+    if map_info['use_google_maps']:
+        # get the URL to Google Maps
+        map_info['maps_url'] = conf.get('all', 'mapsURL')
+        # get the times for going to / coming back from work
+        # and convert these to seconds since epoch, EST tomorrow
+        map_info['morning'] = parse_config_times(conf.get('all', 'morning'))
+        map_info['evening'] = parse_config_times(conf.get('all', 'evening'))
+        # create the maps URL
+        units = conf.get('all', 'mapsUnits')
+        mode = conf.get('all', 'mapsMode')
+        routing = conf.get('all', 'mapsTransitRouting')
+        google_api_key = conf.get('all', 'mapsAPIKey')
+        map_info['maps_url'] += 'units=' + units + '&mode=' + mode + \
+            '&transit_routing_preference=' + routing + '&key=' + google_api_key
 
     create_csv(apartments_url, map_info, fname, pscores)
 
