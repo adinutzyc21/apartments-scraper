@@ -14,7 +14,7 @@ try:
 except ImportError:
     import ConfigParser as configparser
 
-def create_csv(page_url, map_info, fname, pscores):
+def create_csv(search_urls, map_info, fname, pscores):
     """Create a CSV file with information that can be imported into ideal-engine"""
 
     # avoid the issue on Windows where there's an extra space every other line
@@ -51,7 +51,10 @@ def create_csv(page_url, map_info, fname, pscores):
         writer.writerow(header)
 
         # parse current entire apartment list including pagination
-        write_parsed_to_csv(page_url, map_info, writer, pscores)
+        for url in search_urls:
+            print "Now getting apartments from: %s" % url
+            write_parsed_to_csv(url, map_info, writer, pscores)
+
     finally:
         csv_file.close()
 
@@ -114,19 +117,20 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores):
         writer.writerow(row)
 
     # get the next page URL for pagination
-    next_pagination_url = soup.find('a', class_='next')
+    next_url_to_parse = soup.find('a', class_='next')
+
     # if there's only one page this will actually be none
-    if next_pagination_url is None:
+    if next_url_to_parse is None:
         return
 
     # get the actual next URL address
-    next_pagination_url = next_pagination_url.get('href')
+    next_url_to_parse = next_url_to_parse.get('href')
 
-    if next_pagination_url is None or next_pagination_url == '' or next_pagination_url == 'javascript:void(0)':
+    if next_url_to_parse is None or next_url_to_parse == '' or next_url_to_parse == 'javascript:void(0)':
         return
 
     # recurse until the last page
-    write_parsed_to_csv(next_pagination_url, map_info, writer, pscores)
+    write_parsed_to_csv(next_url_to_parse, map_info, writer, pscores)
 
 
 def parse_apartment_information(url, map_info):
@@ -510,7 +514,8 @@ def main():
     conf.read('config.ini')
 
     # get the apartments.com search URL
-    apartments_url = conf.get('all', 'apartmentsURL')
+    apartments_url_config = conf.get('all', 'apartmentsURL')
+    urls = apartments_url_config.replace(" ", "").split(",")
 
     # get the name of the output file
     fname = conf.get('all', 'fname') + '.csv'
@@ -545,7 +550,7 @@ def main():
         map_info['maps_url'] += 'units=' + units + '&mode=' + mode + \
             '&transit_routing_preference=' + routing + '&key=' + google_api_key
 
-    create_csv(apartments_url, map_info, fname, pscores)
+    create_csv(urls, map_info, fname, pscores)
 
 
 if __name__ == '__main__':
