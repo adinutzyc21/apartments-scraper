@@ -50,7 +50,7 @@ def create_csv(search_urls, map_info, fname, pscores):
         # write the header
         writer.writerow(header)
 
-        # parse current entire apartment list including pagination
+        # parse current entire apartment list including pagination for all search urls
         for url in search_urls:
             print "Now getting apartments from: %s" % url
             write_parsed_to_csv(url, map_info, writer, pscores)
@@ -513,7 +513,7 @@ def main():
     conf = configparser.ConfigParser()
     conf.read('config.ini')
 
-    # get the apartments.com search URL
+    # get the apartments.com search URL(s)
     apartments_url_config = conf.get('all', 'apartmentsURL')
     urls = apartments_url_config.replace(" ", "").split(",")
 
