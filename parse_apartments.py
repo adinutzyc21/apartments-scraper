@@ -114,19 +114,19 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores):
         writer.writerow(row)
 
     # get the next page URL for pagination
-    next_url = soup.find('a', class_='next')
+    next_pagination_url = soup.find('a', class_='next')
     # if there's only one page this will actually be none
-    if next_url is None:
+    if next_pagination_url is None:
         return
 
     # get the actual next URL address
-    next_url = next_url.get('href')
+    next_pagination_url = next_pagination_url.get('href')
 
-    if next_url is None or next_url == '' or next_url == 'javascript:void(0)':
+    if next_pagination_url is None or next_pagination_url == '' or next_pagination_url == 'javascript:void(0)':
         return
 
     # recurse until the last page
-    write_parsed_to_csv(next_url, map_info, writer, pscores)
+    write_parsed_to_csv(next_pagination_url, map_info, writer, pscores)
 
 
 def parse_apartment_information(url, map_info):
