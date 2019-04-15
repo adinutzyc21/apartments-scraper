@@ -14,7 +14,7 @@ try:
 except ImportError:
     import ConfigParser as configparser
 
-def create_csv(page_url, map_info, fname, pscores):
+def create_csv(search_urls, map_info, fname, pscores):
     """Create a CSV file with information that can be imported into ideal-engine"""
 
     # avoid the issue on Windows where there's an extra space every other line
@@ -50,8 +50,11 @@ def create_csv(page_url, map_info, fname, pscores):
         # write the header
         writer.writerow(header)
 
-        # parse current entire apartment list including pagination
-        write_parsed_to_csv(page_url, map_info, writer, pscores)
+        # parse current entire apartment list including pagination for all search urls
+        for url in search_urls:
+            print "Now getting apartments from: %s" % url
+            write_parsed_to_csv(url, map_info, writer, pscores)
+
     finally:
         csv_file.close()
 
@@ -115,6 +118,7 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores):
 
     # get the next page URL for pagination
     next_url = soup.find('a', class_='next')
+
     # if there's only one page this will actually be none
     if next_url is None:
         return
@@ -509,8 +513,9 @@ def main():
     conf = configparser.ConfigParser()
     conf.read('config.ini')
 
-    # get the apartments.com search URL
-    apartments_url = conf.get('all', 'apartmentsURL')
+    # get the apartments.com search URL(s)
+    apartments_url_config = conf.get('all', 'apartmentsURL')
+    urls = apartments_url_config.replace(" ", "").split(",")
 
     # get the name of the output file
     fname = conf.get('all', 'fname') + '.csv'
@@ -545,7 +550,7 @@ def main():
         map_info['maps_url'] += 'units=' + units + '&mode=' + mode + \
             '&transit_routing_preference=' + routing + '&key=' + google_api_key
 
-    create_csv(apartments_url, map_info, fname, pscores)
+    create_csv(urls, map_info, fname, pscores)
 
 
 if __name__ == '__main__':
