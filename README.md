@@ -24,6 +24,7 @@ You also need to install
 In order to generate the CSV file:
 
 1. Rename config_example.ini to config.ini.
+	- In the parse_apartments.py file, declare the absolute path of the config.ini file in main().
 1. Search for apartments on apartments.com. Use your own criteria using the app. Copy the URL.
     - Replace the parenthesis after "apartmentsURL:" in config.ini with the copied URL.
 1. Get an API key from [Google Maps API](https://developers.google.com/maps/documentation/distance-matrix/get-api-key) (this is for calculating distances / times using Google Maps).
