@@ -6,6 +6,7 @@ import re
 import sys
 import datetime
 import requests
+import os
 from bs4 import BeautifulSoup
 
 # Config parser was renamed in Python 3
@@ -511,9 +512,8 @@ def main():
     """Read from the config file and get the Google maps info optionally"""
 
     conf = configparser.ConfigParser()
-
-    # best to use the absolute path of the config file, prevents configparser.NoSectionError: No section: 'all'
-    conf.read('C:/whatever your path is/config.ini')
+    config_file = os.path.join(os.path.dirname(__file__), "config.ini")
+    conf.read(config_file)
 
     # get the apartments.com search URL(s)
     apartments_url_config = conf.get('all', 'apartmentsURL')
