@@ -6,6 +6,7 @@ import re
 import sys
 import datetime
 import requests
+import os
 from bs4 import BeautifulSoup
 
 # Config parser was renamed in Python 3
@@ -52,7 +53,7 @@ def create_csv(search_urls, map_info, fname, pscores):
 
         # parse current entire apartment list including pagination for all search urls
         for url in search_urls:
-            print "Now getting apartments from: %s" % url
+            print ("Now getting apartments from: %s" % url)
             write_parsed_to_csv(url, map_info, writer, pscores)
 
     finally:
@@ -95,7 +96,7 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores):
         fields = parse_apartment_information(url, map_info)
 
         # make this wiki markup
-        fields['name'] = '[' + fields['name'] + '](' + url + ')'
+        fields['name'] = '[' + str(fields['name']) + '](' + url + ')'
         fields['address'] = '[' + fields['address'] + '](' + fields['map'] + ')'
 
         # fill out the CSV file
@@ -511,7 +512,8 @@ def main():
     """Read from the config file and get the Google maps info optionally"""
 
     conf = configparser.ConfigParser()
-    conf.read('config.ini')
+    config_file = os.path.join(os.path.dirname(__file__), "config.ini")
+    conf.read(config_file)
 
     # get the apartments.com search URL(s)
     apartments_url_config = conf.get('all', 'apartmentsURL')
