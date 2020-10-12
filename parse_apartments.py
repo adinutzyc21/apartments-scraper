@@ -7,6 +7,7 @@ import datetime
 import requests
 import os
 import time
+import platform
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
@@ -73,7 +74,10 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores, page_number = 2, we
     else:
         options = Options()
         options.headless = True
-        driver = webdriver.Firefox(options=options)
+        if ('debian' in platform.platform()):
+            driver = webdriver.Firefox(firefox_binary='/usr/bin/firefox-esr', options=options)
+        else:
+            driver = webdriver.Firefox(options=options)
         driver.get(page_url)
 
     # read the current page
