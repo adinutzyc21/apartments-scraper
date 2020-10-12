@@ -76,8 +76,6 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores, page_number = 2, we
         driver = webdriver.Firefox(options=options)
         driver.get(page_url)
 
-    print("Loading in the page source!")
-
     # read the current page
     soup = BeautifulSoup(driver.page_source, 'html.parser')
  
@@ -131,12 +129,10 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores, page_number = 2, we
         writer.writerow(row)
 
     page_number_str = str(page_number)
-    print("We are trying to find page number: " + page_number_str)
     
     # check for our next page number
     try:
         page_number_element = driver.find_element_by_xpath("//a[@data-page='" + page_number_str + "']")
-        print(dir(page_number_element))
         page_number_element.click()
         time.sleep(1)
     # we will get a no element found exception, meaning our search has come to an end
