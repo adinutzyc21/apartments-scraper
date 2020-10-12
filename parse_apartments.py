@@ -1,5 +1,4 @@
 """Parse an apartments.com search result page and export to CSV."""
-
 import csv
 import json
 import re
@@ -7,7 +6,11 @@ import sys
 import datetime
 import requests
 import os
+import time
+import platform
 from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 
 # Config parser was renamed in Python 3
 try:
@@ -60,15 +63,27 @@ def create_csv(search_urls, map_info, fname, pscores):
         csv_file.close()
 
 
-def write_parsed_to_csv(page_url, map_info, writer, pscores):
+def write_parsed_to_csv(page_url, map_info, writer, pscores, page_number = 2, web_driver = None):
     """Given the current page URL, extract the information from each apartment in the list"""
 
+    # We start on page_number = 2, since we will already be parsing page_number 1
+
+    # if we are loading the page for the first time, we want to initailize the web driver
+    if(web_driver != None):
+        driver = web_driver
+    else:
+        options = Options()
+        options.headless = True
+        if ('debian' in platform.platform()):
+            driver = webdriver.Firefox(firefox_binary='/usr/bin/firefox-esr', options=options)
+        else:
+            driver = webdriver.Firefox(options=options)
+        driver.get(page_url)
+
     # read the current page
-    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'}
-    page = requests.get(page_url, headers=headers)
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
  
     # soupify the current page
-    soup = BeautifulSoup(page.content, 'html.parser')
     soup.prettify()
     # only look in this region
     soup = soup.find('div', class_='placardContainer')
@@ -117,21 +132,20 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores):
         # write the row
         writer.writerow(row)
 
-    # get the next page URL for pagination
-    next_url = soup.find('a', class_='next')
-
-    # if there's only one page this will actually be none
-    if next_url is None:
-        return
-
-    # get the actual next URL address
-    next_url = next_url.get('href')
-
-    if next_url is None or next_url == '' or next_url == 'javascript:void(0)':
+    page_number_str = str(page_number)
+    
+    # check for our next page number
+    try:
+        page_number_element = driver.find_element_by_xpath("//a[@data-page='" + page_number_str + "']")
+        page_number_element.click()
+        time.sleep(1)
+    # we will get a no element found exception, meaning our search has come to an end
+    except:
+        driver.quit()
         return
 
     # recurse until the last page
-    write_parsed_to_csv(next_url, map_info, writer, pscores)
+    write_parsed_to_csv("none", map_info, writer, pscores, page_number + 1, driver)
 
 
 def parse_apartment_information(url, map_info):

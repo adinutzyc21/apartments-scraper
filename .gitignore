@@ -3,3 +3,4 @@ config.ini
 .DS_Store
 .vscode
 /.vs
+.geckodriver.log
