@@ -20,6 +20,9 @@ You can install Python from [here](https://www.python.org/downloads/).
 You also need to install 
 * beautifulsoup4 from [here](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) and you'll probably need `pip` to do that (`python -m pip install beautifulsoup4` on Windows should do it).
 * requests either through pip ('python -m pip install requests') or directions for your setup found [here](http://docs.python-guide.org/en/latest/starting/installation/)
+* selenium from pip ('python -m pip install selenium')
+  - You will also need to add the [geckodriver](https://github.com/mozilla/geckodriver/releases), and [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/) in order to run selenium.
+  - Feel free to add support for Safari or Chrome and create a PR!
 
 In order to generate the CSV file:
 
