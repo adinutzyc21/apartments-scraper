@@ -1,5 +1,7 @@
 # Apartments.com Scraper
 
+*Update, Dec 3 2021*: Apartments.com now actively prevents scraping. I have tried to get around it but haven't been successful. If you're using the script and getting empty files, that's the reason. If anyone can figure out how to get around that, feel free to PR! But, meanwhile, it seems like this isn't possible anymore.
+
 Note: you can use this to create a CSV to (eventually, when I finish the code) import into the Compare App ([ideal-engine](https://github.com/adinutzyc21/ideal-engine), instance running [here](ideal-engine.herokuapp.com)).
 
 In particular, this parses an [apartments.com](apartments.com) search result based on some criteria that are present in the page. This is current as of January 1, 2019.
