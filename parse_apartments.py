@@ -1,8 +1,6 @@
 """Parse an apartments.com search result page and export to CSV."""
 import csv
-import json
 import re
-import sys
 import datetime
 import requests
 import os
@@ -10,7 +8,6 @@ import time
 import platform
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
 
 # Config parser was renamed in Python 3
 try:
@@ -18,16 +15,11 @@ try:
 except ImportError:
     import ConfigParser as configparser
 
-def create_csv(search_urls, map_info, fname, pscores):
+def create_csv(search_urls, map_info, fname, browserName="Chrome", pscores=False):
     """Create a CSV file with information that can be imported into ideal-engine"""
 
-    # avoid the issue on Windows where there's an extra space every other line
-    if sys.version_info[0] == 2:  # Not named on 2.6
-        access = 'wb'
-        kwargs = {}
-    else:
-        access = 'wt'
-        kwargs = {'newline': ''}
+    access = 'wt'
+    kwargs = {'newline': ''}
     # open file for writing
     csv_file = open(fname, access, **kwargs)
 
@@ -46,7 +38,7 @@ def create_csv(search_urls, map_info, fname, pscores):
                   'Images', 'Description']
         # add the score fields if necessary
         if pscores:
-            for i in xrange(len(header), 0, -1):
+            for i in range(len(header), 0, -1):
                 header.insert(i, 5)
             # flag that we're importing with scores
             header[1] = 'score'
@@ -57,13 +49,13 @@ def create_csv(search_urls, map_info, fname, pscores):
         # parse current entire apartment list including pagination for all search urls
         for url in search_urls:
             print ("Now getting apartments from: %s" % url)
-            write_parsed_to_csv(url, map_info, writer, pscores)
+            write_parsed_to_csv(url, map_info, writer, browserName, pscores)
 
     finally:
         csv_file.close()
 
 
-def write_parsed_to_csv(page_url, map_info, writer, pscores, page_number = 2, web_driver = None):
+def write_parsed_to_csv(page_url, map_info, writer, browserName="Chrome", pscores=False, page_number = 2, web_driver = None):
     """Given the current page URL, extract the information from each apartment in the list"""
 
     # We start on page_number = 2, since we will already be parsing page_number 1
@@ -72,15 +64,24 @@ def write_parsed_to_csv(page_url, map_info, writer, pscores, page_number = 2, we
     if(web_driver != None):
         driver = web_driver
     else:
-        options = Options()
-        options.headless = True
-        if ('debian' in platform.platform()):
-            driver = webdriver.Firefox(firefox_binary='/usr/bin/firefox-esr', options=options)
-        else:
-            driver = webdriver.Firefox(options=options)
+        if browserName == "Firefox":
+            from selenium.webdriver.firefox.options import Options
+            options = Options()
+            options.headless = True
+            if ('debian' in platform.platform()):
+                driver = webdriver.Firefox(firefox_binary='/usr/bin/firefox-esr', options=options)
+            else:
+                driver = webdriver.Firefox(options=options)
+        elif browserName == "Chrome":
+            import chromedriver_binary  # Adds chromedriver binary to path
+            from selenium.webdriver.chrome.options import Options
+            options = Options()
+            options.headless = True
+            driver = webdriver.Chrome(options=options)
         driver.get(page_url)
 
     # read the current page
+    print(driver.page_source)
     soup = BeautifulSoup(driver.page_source, 'html.parser')
  
     # soupify the current page
@@ -566,7 +567,8 @@ def main():
         map_info['maps_url'] += 'units=' + units + '&mode=' + mode + \
             '&transit_routing_preference=' + routing + '&key=' + google_api_key
 
-    create_csv(urls, map_info, fname, pscores)
+    browserName = conf.get('all', 'browserName')
+    create_csv(urls, map_info, fname, browserName, pscores)
 
 
 if __name__ == '__main__':
