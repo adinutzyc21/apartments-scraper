@@ -1,0 +1,646 @@
+1670475942205	geckodriver	INFO	Listening on 127.0.0.1:57887
+1670476130827	geckodriver	INFO	Listening on 127.0.0.1:57936
+1670476131337	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "57937" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileD4DRIf"
+*** You are running in headless mode.
+1670476131823	Marionette	INFO	Marionette enabled
+1670476131844	Marionette	INFO	Listening on port 57951
+Read port: 57951
+2022-12-08 00:08:52.075 plugin-container[30717:9814557] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:08:52.075 plugin-container[30717:9814557] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:08:52.107 plugin-container[30717:9814557] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:08:52.107 plugin-container[30717:9814557] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:08:52.107 plugin-container[30717:9814562] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:08:52.107 plugin-container[30717:9814562] nil host used in call to allowsAnyHTTPSCertificateForHost:
+WebDriver BiDi listening on ws://127.0.0.1:57937
+1670476132407	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileD4DRIf/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:57937/devtools/browser/a855e74a-7576-41a0-8c2d-bab2ed52b4b1
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+1670476146394	geckodriver	INFO	Listening on 127.0.0.1:58021
+1670476146913	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "58022" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileow2lrY"
+*** You are running in headless mode.
+2022-12-08 00:09:07.283 plugin-container[30776:9815159] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:09:07.283 plugin-container[30776:9815159] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:09:07.286 plugin-container[30776:9815159] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:09:07.286 plugin-container[30776:9815159] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:09:07.286 plugin-container[30776:9815165] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:09:07.286 plugin-container[30776:9815165] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670476147303	Marionette	INFO	Marionette enabled
+1670476147353	Marionette	INFO	Listening on port 58031
+WebDriver BiDi listening on ws://127.0.0.1:58022
+Read port: 58031
+1670476147531	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileow2lrY/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58022/devtools/browser/a3d7dacf-0465-41a0-897d-860e3706d7a0
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+1670476493269	geckodriver	INFO	Listening on 127.0.0.1:58166
+1670476493792	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "58167" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileZNcfnE"
+*** You are running in headless mode.
+2022-12-08 00:14:54.139 plugin-container[30929:9818365] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:14:54.139 plugin-container[30929:9818365] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:14:54.143 plugin-container[30929:9818365] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:14:54.143 plugin-container[30929:9818365] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:14:54.143 plugin-container[30929:9818371] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:14:54.143 plugin-container[30929:9818371] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670476494158	Marionette	INFO	Marionette enabled
+1670476494205	Marionette	INFO	Listening on port 58174
+Read port: 58174
+WebDriver BiDi listening on ws://127.0.0.1:58167
+1670476494359	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileZNcfnE/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58167/devtools/browser/8f4e3e31-91ea-4cd2-9da9-fafca83150e3
+1670476496858	Marionette	INFO	Stopped listening on port 58174
+JavaScript error: resource://services-settings/Utils.jsm, line 239: TypeError: NetworkError: Network request failed
+JavaScript error: resource://gre/modules/Sqlite.sys.mjs, line 1106: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileZNcfnE/protections.sqlite
+1670476497576	geckodriver	INFO	Listening on 127.0.0.1:58230
+1670476498093	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "58231" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileG3rHNw"
+*** You are running in headless mode.
+2022-12-08 00:14:58.497 plugin-container[30950:9818720] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:14:58.498 plugin-container[30950:9818720] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:14:58.502 plugin-container[30950:9818720] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:14:58.502 plugin-container[30950:9818720] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:14:58.503 plugin-container[30950:9818722] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:14:58.503 plugin-container[30950:9818722] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670476498520	Marionette	INFO	Marionette enabled
+1670476498536	Marionette	INFO	Listening on port 58240
+WebDriver BiDi listening on ws://127.0.0.1:58231
+Read port: 58240
+1670476498733	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileG3rHNw/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58231/devtools/browser/56c41c99-a208-477f-a811-ac246e52456a
+1670476516395	geckodriver	INFO	Listening on 127.0.0.1:58287
+1670476516914	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "58288" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofilebhcZ15"
+*** You are running in headless mode.
+2022-12-08 00:15:17.265 plugin-container[31012:9819251] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:15:17.265 plugin-container[31012:9819251] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:15:17.269 plugin-container[31012:9819251] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:15:17.269 plugin-container[31012:9819251] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:15:17.270 plugin-container[31012:9819257] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:15:17.270 plugin-container[31012:9819257] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670476517283	Marionette	INFO	Marionette enabled
+1670476517328	Marionette	INFO	Listening on port 58296
+Read port: 58296
+WebDriver BiDi listening on ws://127.0.0.1:58288
+1670476517485	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofilebhcZ15/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58288/devtools/browser/dba98d80-a6e9-497f-907c-2fc05b5d358a
+1670476520239	Marionette	INFO	Stopped listening on port 58296
+1670477649432	geckodriver	INFO	Listening on 127.0.0.1:58846
+1670477649949	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "58847" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileWBCTDX"
+*** You are running in headless mode.
+2022-12-08 00:34:10.277 plugin-container[31368:9827515] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:34:10.277 plugin-container[31368:9827515] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:34:10.281 plugin-container[31368:9827515] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:34:10.281 plugin-container[31368:9827515] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:34:10.281 plugin-container[31368:9827517] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:34:10.281 plugin-container[31368:9827517] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670477650297	Marionette	INFO	Marionette enabled
+1670477650341	Marionette	INFO	Listening on port 58854
+Read port: 58854
+WebDriver BiDi listening on ws://127.0.0.1:58847
+1670477650512	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileWBCTDX/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58847/devtools/browser/fc37f54f-2f2a-48fc-8f89-15f19e2a021f
+1670477653629	Marionette	INFO	Stopped listening on port 58854
+1670477780399	geckodriver	INFO	Listening on 127.0.0.1:58933
+1670477780919	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "58934" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofilevta2u1"
+*** You are running in headless mode.
+2022-12-08 00:36:21.264 plugin-container[31439:9828753] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:36:21.264 plugin-container[31439:9828753] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:36:21.267 plugin-container[31439:9828753] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:36:21.267 plugin-container[31439:9828753] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:36:21.268 plugin-container[31439:9828755] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:36:21.268 plugin-container[31439:9828755] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670477781284	Marionette	INFO	Marionette enabled
+1670477781328	Marionette	INFO	Listening on port 58942
+Read port: 58942
+WebDriver BiDi listening on ws://127.0.0.1:58934
+1670477781485	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofilevta2u1/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58934/devtools/browser/a8851c07-db08-453a-a78b-1ed93d9703e4
+1670478123182	geckodriver	INFO	Listening on 127.0.0.1:59052
+1670478123704	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "59053" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileNdBehL"
+*** You are running in headless mode.
+2022-12-08 00:42:04.048 plugin-container[31552:9831757] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:42:04.048 plugin-container[31552:9831757] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:42:04.051 plugin-container[31552:9831757] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:42:04.051 plugin-container[31552:9831757] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:42:04.051 plugin-container[31552:9831764] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:42:04.051 plugin-container[31552:9831764] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670478124067	Marionette	INFO	Marionette enabled
+1670478124112	Marionette	INFO	Listening on port 59061
+Read port: 59061
+WebDriver BiDi listening on ws://127.0.0.1:59053
+1670478124268	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileNdBehL/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59053/devtools/browser/9089955f-8169-457c-a4d3-86cd9eef5b4c
+1670478360025	geckodriver	INFO	Listening on 127.0.0.1:59228
+1670478360546	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "59229" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileAQJiD1"
+*** You are running in headless mode.
+2022-12-08 00:46:00.903 plugin-container[31670:9833702] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:46:00.903 plugin-container[31670:9833702] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:46:00.907 plugin-container[31670:9833702] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:46:00.907 plugin-container[31670:9833702] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:46:00.907 plugin-container[31670:9833706] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:46:00.907 plugin-container[31670:9833706] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670478360921	Marionette	INFO	Marionette enabled
+1670478360967	Marionette	INFO	Listening on port 59237
+Read port: 59237
+WebDriver BiDi listening on ws://127.0.0.1:59229
+1670478361144	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileAQJiD1/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59229/devtools/browser/2293e5d5-1c0c-4585-a119-1dd75c0ece56
+1670478378322	geckodriver	INFO	Listening on 127.0.0.1:59315
+1670478378844	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "59316" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileffUWeU"
+*** You are running in headless mode.
+2022-12-08 00:46:19.197 plugin-container[31736:9834234] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:46:19.197 plugin-container[31736:9834234] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:46:19.202 plugin-container[31736:9834234] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:46:19.202 plugin-container[31736:9834234] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:46:19.202 plugin-container[31736:9834232] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:46:19.202 plugin-container[31736:9834232] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670478379221	Marionette	INFO	Marionette enabled
+1670478379266	Marionette	INFO	Listening on port 59323
+Read port: 59323
+WebDriver BiDi listening on ws://127.0.0.1:59316
+1670478379443	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileffUWeU/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59316/devtools/browser/c0a6df75-ec53-45b3-a9fc-98c0d2a60be3
+1670478428268	geckodriver	INFO	Listening on 127.0.0.1:59405
+1670478428772	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "59406" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofilepFsQoV"
+*** You are running in headless mode.
+2022-12-08 00:47:09.123 plugin-container[31793:9834941] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:47:09.123 plugin-container[31793:9834941] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:47:09.128 plugin-container[31793:9834941] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:47:09.128 plugin-container[31793:9834941] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:47:09.128 plugin-container[31793:9834943] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:47:09.128 plugin-container[31793:9834943] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670478429143	Marionette	INFO	Marionette enabled
+1670478429194	Marionette	INFO	Listening on port 59415
+WebDriver BiDi listening on ws://127.0.0.1:59406
+Read port: 59415
+1670478429370	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofilepFsQoV/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59406/devtools/browser/261605fe-84e1-478f-a724-30917c82f5da
+1670479066404	geckodriver	INFO	Listening on 127.0.0.1:59723
+1670479066924	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "59724" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofilesy5pZJ"
+*** You are running in headless mode.
+2022-12-08 00:57:47.304 plugin-container[31973:9838951] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:57:47.304 plugin-container[31973:9838951] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:57:47.307 plugin-container[31973:9838951] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:57:47.307 plugin-container[31973:9838951] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 00:57:47.308 plugin-container[31973:9838953] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 00:57:47.308 plugin-container[31973:9838953] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670479067321	Marionette	INFO	Marionette enabled
+1670479067366	Marionette	INFO	Listening on port 59731
+Read port: 59731
+WebDriver BiDi listening on ws://127.0.0.1:59724
+1670479067548	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofilesy5pZJ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59724/devtools/browser/a417e9fb-cf0f-4017-92a7-81672a58c7e3
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: MdsReadError: NetworkError when attempting to fetch resource.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: MdsReadError: NetworkError when attempting to fetch resource.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: MdsReadError: NetworkError when attempting to fetch resource.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: MdsReadError: NetworkError when attempting to fetch resource.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: MdsReadError: NetworkError when attempting to fetch resource.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: MdsReadError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: NotFound: Model not found (404)
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: NotFound: Model not found (404)
+1670479212385	geckodriver	INFO	Listening on 127.0.0.1:59857
+1670479212901	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "59858" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofiley0OK8T"
+*** You are running in headless mode.
+2022-12-08 01:00:13.267 plugin-container[32079:9840679] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:00:13.268 plugin-container[32079:9840679] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:00:13.271 plugin-container[32079:9840679] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:00:13.271 plugin-container[32079:9840679] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:00:13.272 plugin-container[32079:9840681] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:00:13.272 plugin-container[32079:9840681] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670479213286	Marionette	INFO	Marionette enabled
+1670479213304	Marionette	INFO	Listening on port 59866
+Read port: 59866
+WebDriver BiDi listening on ws://127.0.0.1:59858
+1670479213500	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofiley0OK8T/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59858/devtools/browser/87cc83db-0a0e-4d74-b8ec-96f4701775f7
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: MdsReadError: NetworkError when attempting to fetch resource.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: MdsReadError: NetworkError when attempting to fetch resource.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: MdsReadError: NetworkError when attempting to fetch resource.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: MdsReadError: NetworkError when attempting to fetch resource.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: Error: Loading CSS chunk 321 failed.
+(https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/css/core.css)
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: Error: Loading CSS chunk 321 failed.
+(https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/css/core.css)
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: MdsReadError: NetworkError when attempting to fetch resource.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: MdsReadError: NetworkError when attempting to fetch resource.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1670479226977	geckodriver	INFO	Listening on 127.0.0.1:59951
+1670479227495	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "59952" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileDmyTHj"
+*** You are running in headless mode.
+2022-12-08 01:00:27.856 plugin-container[32135:9841310] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:00:27.857 plugin-container[32135:9841310] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:00:27.862 plugin-container[32135:9841310] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:00:27.878 plugin-container[32135:9841310] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:00:27.879 plugin-container[32135:9841308] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:00:27.879 plugin-container[32135:9841308] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670479227880	Marionette	INFO	Marionette enabled
+1670479227923	Marionette	INFO	Listening on port 59960
+WebDriver BiDi listening on ws://127.0.0.1:59952
+Read port: 59960
+1670479228096	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileDmyTHj/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59952/devtools/browser/fa22b4a0-0bed-467d-ba44-4853ecb109a7
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1670479519034	geckodriver	INFO	Listening on 127.0.0.1:60144
+1670479519555	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "60145" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofile5DeuQT"
+*** You are running in headless mode.
+2022-12-08 01:05:19.907 plugin-container[32261:9843506] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:05:19.907 plugin-container[32261:9843506] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:05:19.911 plugin-container[32261:9843506] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:05:19.911 plugin-container[32261:9843506] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:05:19.911 plugin-container[32261:9843508] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:05:19.911 plugin-container[32261:9843508] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670479519927	Marionette	INFO	Marionette enabled
+1670479519973	Marionette	INFO	Listening on port 60152
+Read port: 60152
+WebDriver BiDi listening on ws://127.0.0.1:60145
+1670479520154	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofile5DeuQT/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:60145/devtools/browser/b058b333-b5c5-4d52-956c-ef69dd7ac37c
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: NotFound: Model not found (404)
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: NotFound: Model not found (404)
+JavaScript error: , line 0: uncaught exception: Object
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1670480202643	geckodriver	INFO	Listening on 127.0.0.1:60467
+1670480203165	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "60468" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileKS4tkw"
+*** You are running in headless mode.
+2022-12-08 01:16:43.520 plugin-container[32423:9848089] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:16:43.520 plugin-container[32423:9848089] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:16:43.524 plugin-container[32423:9848089] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:16:43.524 plugin-container[32423:9848089] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:16:43.524 plugin-container[32423:9848091] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:16:43.524 plugin-container[32423:9848091] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670480203540	Marionette	INFO	Marionette enabled
+1670480203586	Marionette	INFO	Listening on port 60475
+Read port: 60475
+WebDriver BiDi listening on ws://127.0.0.1:60468
+1670480203763	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileKS4tkw/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:60468/devtools/browser/b0237906-5f4c-4407-b039-8b3b0f4d5d1e
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+1670480294782	geckodriver	INFO	Listening on 127.0.0.1:60563
+1670480295306	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "60564" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileIgZJib"
+*** You are running in headless mode.
+2022-12-08 01:18:15.663 plugin-container[32492:9849258] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:18:15.664 plugin-container[32492:9849258] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:18:15.668 plugin-container[32492:9849258] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:18:15.668 plugin-container[32492:9849258] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:18:15.669 plugin-container[32492:9849256] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:18:15.669 plugin-container[32492:9849256] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670480295685	Marionette	INFO	Marionette enabled
+1670480295702	Marionette	INFO	Listening on port 60573
+Read port: 60573
+WebDriver BiDi listening on ws://127.0.0.1:60564
+1670480295889	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileIgZJib/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:60564/devtools/browser/b2ec4d12-b5a7-4ea4-a441-8be9fa61ed32
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: NotFound: Model not found (404)
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: NotFound: Model not found (404)
+1670480476586	geckodriver	INFO	Listening on 127.0.0.1:60729
+1670480477107	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "60730" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofile06DjCo"
+*** You are running in headless mode.
+2022-12-08 01:21:17.465 plugin-container[32606:9851670] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:21:17.465 plugin-container[32606:9851670] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:21:17.471 plugin-container[32606:9851670] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:21:17.471 plugin-container[32606:9851670] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:21:17.472 plugin-container[32606:9851672] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:21:17.472 plugin-container[32606:9851672] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670480477505	Marionette	INFO	Marionette enabled
+1670480477549	Marionette	INFO	Listening on port 60737
+Read port: 60737
+WebDriver BiDi listening on ws://127.0.0.1:60730
+1670480477733	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofile06DjCo/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:60730/devtools/browser/28d7ced7-ada8-45e9-bb91-3072a96ede47
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: NotFound: Model not found (404)
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: NotFound: Model not found (404)
+JavaScript error: , line 0: uncaught exception: Object
+1670480586295	geckodriver	INFO	Listening on 127.0.0.1:60867
+1670480586811	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "60868" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileNAXT2n"
+*** You are running in headless mode.
+2022-12-08 01:23:07.177 plugin-container[32693:9852992] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:23:07.177 plugin-container[32693:9852992] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:23:07.189 plugin-container[32693:9852992] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:23:07.189 plugin-container[32693:9852992] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:23:07.190 plugin-container[32693:9853016] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:23:07.190 plugin-container[32693:9853016] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670480587192	Marionette	INFO	Marionette enabled
+1670480587238	Marionette	INFO	Listening on port 60876
+Read port: 60876
+WebDriver BiDi listening on ws://127.0.0.1:60868
+1670480587421	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileNAXT2n/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:60868/devtools/browser/90bc092e-cde0-4cb1-a4cd-7d11e9482118
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+1670480616746	geckodriver	INFO	Listening on 127.0.0.1:60965
+1670480617260	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "60966" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileYVuGPo"
+*** You are running in headless mode.
+2022-12-08 01:23:37.611 plugin-container[32747:9853940] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:23:37.611 plugin-container[32747:9853940] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:23:37.616 plugin-container[32747:9853940] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:23:37.616 plugin-container[32747:9853940] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:23:37.616 plugin-container[32747:9853938] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:23:37.616 plugin-container[32747:9853938] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670480617632	Marionette	INFO	Marionette enabled
+1670480617659	Marionette	INFO	Listening on port 60973
+Read port: 60973
+WebDriver BiDi listening on ws://127.0.0.1:60966
+1670480617917	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileYVuGPo/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:60966/devtools/browser/cd9e24a6-cea8-403d-9640-bfbbdc9293a3
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: NotFound: Model not found (404)
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: NotFound: Model not found (404)
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+JavaScript error: https://st3.idealista.com/static/common/release/detail/detail.js?20221202-1448, line 1: SyntaxError: redeclaration of const VALIDATION_FIELDS
+1670481129868	geckodriver	INFO	Listening on 127.0.0.1:61135
+1670481130390	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "61136" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileAKLf0x"
+*** You are running in headless mode.
+2022-12-08 01:32:10.738 plugin-container[32882:9857385] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:32:10.739 plugin-container[32882:9857385] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:32:10.746 plugin-container[32882:9857385] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:32:10.746 plugin-container[32882:9857385] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:32:10.746 plugin-container[32882:9857393] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:32:10.746 plugin-container[32882:9857393] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670481130764	Marionette	INFO	Marionette enabled
+1670481130814	Marionette	INFO	Listening on port 61144
+Read port: 61144
+WebDriver BiDi listening on ws://127.0.0.1:61136
+1670481130995	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileAKLf0x/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:61136/devtools/browser/272b2a6f-f09e-4720-89ab-cca1ef104abe
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: NotFound: Model not found (404)
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: NotFound: Model not found (404)
+JavaScript error: , line 0: uncaught exception: Object
+1670481321003	geckodriver	INFO	Listening on 127.0.0.1:61366
+1670481321508	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "61367" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileOmkkjR"
+*** You are running in headless mode.
+2022-12-08 01:35:21.919 plugin-container[33018:9860881] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:35:21.920 plugin-container[33018:9860881] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:35:21.923 plugin-container[33018:9860881] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:35:21.923 plugin-container[33018:9860881] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:35:21.923 plugin-container[33018:9860894] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:35:21.923 plugin-container[33018:9860894] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670481321944	Marionette	INFO	Marionette enabled
+1670481322001	Marionette	INFO	Listening on port 61375
+Read port: 61375
+WebDriver BiDi listening on ws://127.0.0.1:61367
+1670481322284	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileOmkkjR/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:61367/devtools/browser/93b125c7-3b4d-4131-b200-c7375bc42271
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: ChunkLoadError: Loading chunk 58 failed.
+(error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/58.js)
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: ChunkLoadError: Loading chunk 58 failed.
+(error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/58.js)
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: ChunkLoadError: Loading chunk 58 failed.
+(error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/58.js)
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: ChunkLoadError: Loading chunk 58 failed.
+(error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/58.js)
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: MdsReadError: NetworkError when attempting to fetch resource.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: MdsReadError: NetworkError when attempting to fetch resource.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: MdsReadError: NetworkError when attempting to fetch resource.
+JavaScript error: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 2: MdsReadError: NetworkError when attempting to fetch resource.
+1670481572289	geckodriver	INFO	Listening on 127.0.0.1:61651
+1670481572800	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "61652" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileV6ZtlB"
+*** You are running in headless mode.
+2022-12-08 01:39:33.141 plugin-container[33138:9863737] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:39:33.141 plugin-container[33138:9863737] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:39:33.146 plugin-container[33138:9863737] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:39:33.146 plugin-container[33138:9863737] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:39:33.147 plugin-container[33138:9863745] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:39:33.147 plugin-container[33138:9863745] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670481573164	Marionette	INFO	Marionette enabled
+1670481573186	Marionette	INFO	Listening on port 61659
+Read port: 61659
+WebDriver BiDi listening on ws://127.0.0.1:61652
+1670481573448	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileV6ZtlB/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:61652/devtools/browser/df571af3-8f8b-4814-8ec9-fc9f5cfd98d6
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1670481607616	geckodriver	INFO	Listening on 127.0.0.1:61769
+1670481608137	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "61770" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofilebOrF1z"
+*** You are running in headless mode.
+2022-12-08 01:40:08.497 plugin-container[33204:9864536] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:40:08.497 plugin-container[33204:9864536] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:40:08.502 plugin-container[33204:9864536] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:40:08.502 plugin-container[33204:9864536] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:40:08.502 plugin-container[33204:9864538] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:40:08.502 plugin-container[33204:9864538] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670481608519	Marionette	INFO	Marionette enabled
+1670481608565	Marionette	INFO	Listening on port 61777
+WebDriver BiDi listening on ws://127.0.0.1:61770
+Read port: 61777
+1670481608744	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofilebOrF1z/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:61770/devtools/browser/291101bd-6335-42f7-9e04-796e86c54295
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1670481968362	geckodriver	INFO	Listening on 127.0.0.1:62502
+1670481968883	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "62503" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofilePR77kP"
+*** You are running in headless mode.
+2022-12-08 01:46:09.238 plugin-container[33334:9867602] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:46:09.238 plugin-container[33334:9867602] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:46:09.252 plugin-container[33334:9867602] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:46:09.252 plugin-container[33334:9867602] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:46:09.252 plugin-container[33334:9867604] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:46:09.252 plugin-container[33334:9867604] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670481969255	Marionette	INFO	Marionette enabled
+1670481969292	Marionette	INFO	Listening on port 62514
+Read port: 62514
+WebDriver BiDi listening on ws://127.0.0.1:62503
+1670481969584	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofilePR77kP/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:62503/devtools/browser/13736b75-a7e4-4329-8917-b1361731968a
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1670482392727	geckodriver	INFO	Listening on 127.0.0.1:64471
+1670482393246	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "64472" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileD2i3Wl"
+*** You are running in headless mode.
+2022-12-08 01:53:13.604 plugin-container[33448:9870634] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:53:13.605 plugin-container[33448:9870634] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:53:13.610 plugin-container[33448:9870634] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:53:13.610 plugin-container[33448:9870634] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:53:13.610 plugin-container[33448:9870637] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:53:13.610 plugin-container[33448:9870637] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670482393628	Marionette	INFO	Marionette enabled
+1670482393677	Marionette	INFO	Listening on port 64483
+Read port: 64483
+WebDriver BiDi listening on ws://127.0.0.1:64472
+1670482393868	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofileD2i3Wl/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64472/devtools/browser/b7331b6f-107c-4e28-9a17-d2aac454e1e4
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1670482480976	geckodriver	INFO	Listening on 127.0.0.1:64972
+1670482481488	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "64973" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofile9p5Zqs"
+*** You are running in headless mode.
+2022-12-08 01:54:41.852 plugin-container[33554:9872075] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:54:41.852 plugin-container[33554:9872075] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:54:41.866 plugin-container[33554:9872075] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:54:41.866 plugin-container[33554:9872075] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-12-08 01:54:41.867 plugin-container[33554:9872080] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-12-08 01:54:41.867 plugin-container[33554:9872080] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1670482481870	Marionette	INFO	Marionette enabled
+1670482481918	Marionette	INFO	Listening on port 64984
+Read port: 64984
+WebDriver BiDi listening on ws://127.0.0.1:64973
+1670482482113	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/2j/7tvzdqdj5cj6svrdtljct5400000gn/T/rust_mozprofile9p5Zqs/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:64973/devtools/browser/c1b7e3eb-297f-47c7-9919-0be0df70ddc4
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://st3.idealista.com/static/react/gallery/dist/npm..pnpm.0bc1013255a3a6e43eff.js, line 47: unreachable code after return statement
+JavaScript warning: https://static.matterport.com/showcase/3.1.81.2-0-g5aaec2355c/js/showcase.js, line 8: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
