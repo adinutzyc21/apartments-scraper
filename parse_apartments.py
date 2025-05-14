@@ -1,16 +1,19 @@
 """Parse an apartments.com search result page and export to CSV."""
 import csv
+import random
 import re
 import sys
-import datetime
-import requests
 import os
-import platform
+import time
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
 import urllib.parse
 import configparser
+
 
 def create_csv(base_url, urls, web_driver, fname):
     """Create a CSV file with information that can be imported into ideal-engine"""
@@ -43,60 +46,65 @@ def create_csv(base_url, urls, web_driver, fname):
     finally:
         csv_file.close()
 
-def write_parsed_to_csv(base_url, page_url, web_driver, writer, page_number = 2):
+def write_parsed_to_csv(base_url, page_url, web_driver, writer):
     """Given the current page URL, extract the information from each apartment in the list"""
+    
+    if page_url != None:
+        print(f"---> Parsing {page_url}")
 
-    # We start on page_number = 2, since we will already be parsing page_number 1
-    web_driver.get(page_url)
+        web_driver.get(page_url)
 
-    # read the current page
-    soup = BeautifulSoup(web_driver.page_source, 'html.parser')
- 
-    # soupify the current page
-    soup.prettify()
+        # read the current page
+        soup = BeautifulSoup(web_driver.page_source, 'html.parser')
+    
+        # soupify the current page
+        soup.prettify()
+        x = soup.find('section', class_='items-container')
+        if x is None:
+            if soup.select('.captcha-container'):
+                raise Exception("There was an error parsing the documents")
+            else:
+                time.sleep(30)
 
-    # append the current apartments to the list
-    for item in soup.find_all('div', class_='item-info-container'):
-        url = item.find('a', class_='item-link')
-        if url is None: continue
-
-        url = url.get('href')
-        if url is None: continue
-
+        # append the current apartments to the list
+        res = soup.find('div', class_='item-info-container')
+        url = res.find('a', class_='item-link').get('href')
         url = urllib.parse.urljoin(base_url, url)
 
-        # get the other fields to write to the CSV
-        fields = parse_apartment_information(url, web_driver)
+        sleep_time = random.randint(5, 15)
+        print(f"Waiting {sleep_time} seconds")
+        time.sleep(sleep_time)
 
-        # fill out the CSV file: ['Title', 'Location', 'Size', 'Beds', 'Floor & Elevator', 'Parking', 'Price', 'Description', 'URL']
-        row = [fields['title'], fields['location'], fields['size'], fields['beds'],
-                fields['floor-elev'], fields['parking'], fields['price'], fields['description'], url]
-        # write the row
-        writer.writerow(row)
+        print(f"Parsing {url}")
+        web_driver.get(url)
+    else:
+        url = web_driver.current_url
 
-    # page_number_str = str(page_number)
-    
-    # # check for our next page number
-    # try:
-    #     page_number_element = driver.find_element_by_xpath("//a[@data-page='" + page_number_str + "']")
-    #     page_number_element.click()
-    #     time.sleep(1)
-    # # we will get a no element found exception, meaning our search has come to an end
-    # except:
-    #     driver.quit()
-    #     return
+    # get the other fields to write to the CSV
+    fields = parse_apartment_information(web_driver)
 
-    # # recurse until the last page
-    # write_parsed_to_csv("none", writer, page_number + 1, driver)
+    # fill out the CSV file: ['Title', 'Location', 'Size', 'Beds', 'Floor & Elevator', 'Parking', 'Price', 'Description', 'URL']
+    row = [fields['title'], fields['location'], fields['size'], fields['beds'],
+            fields['floor-elev'], fields['parking'], fields['price'], fields['description'], url]
+    # write the row
+    writer.writerow(row)
 
+    try:
+        # click the next link
+        next = web_driver.find_element(By.LINK_TEXT, "Next")
+        next.click()
+        time.sleep(10)
+    except Exception as e:
+        print(e)
+        web_driver.quit()
+        return
+    write_parsed_to_csv(base_url, None, web_driver, writer)
 
-def parse_apartment_information(url, web_driver):
+def parse_apartment_information(web_driver):
     """
     For every apartment page, populate the required fields to be written to CSV
     'Title', 'Location', 'Size', 'Beds', 'Floor & Elevator', 'Parking', 'Price', 'Description', 'URL'
     """
-    print(f"Parsing {url}")
-    web_driver.get(url)
 
     # read the current page
     soup = BeautifulSoup(web_driver.page_source, 'html.parser')
@@ -132,12 +140,15 @@ def parse_apartment_information(url, web_driver):
     fields['parking'] = ''
     obj = soup.find('div', class_='info-features')
     if obj is not None:
-        features = obj.find_all("span")
-        fields['size']  = prettify_text(features[0].getText())
-        fields['beds']  = prettify_text(features[1].getText())
-        fields['floor-elev']  = prettify_text(features[2].getText())
-        if len(features) > 3:
-            fields['parking']  = prettify_text(features[3].getText())
+        for idx, item in enumerate(obj.find_all("span")):
+            if idx == 0:
+                fields['size']  = prettify_text(item.getText())
+            if idx == 2:
+                fields['beds']  = prettify_text(item.getText())
+            if idx == 4:
+                fields['floor-elev'] = prettify_text(item.getText())
+            if idx == 6:
+                fields['parking']  = prettify_text(item.getText())
 
     # get the one time and monthly fees
     fields['price'] = ''
@@ -194,10 +205,14 @@ def main():
     fname = conf.get('all', 'fname') + '.csv'
 
     options = Options()
-    options.headless = True
-    web_driver = webdriver.Firefox(options=options)
+    # options.add_argument("--user-data-dir=chrome-data")
+    # options.add_argument("start-maximized")
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    # driver.get(base_url)
+    # time.sleep(30)  # Time to enter credentials
+    # driver.quit()
 
-    create_csv(base_url, urls, web_driver, fname)
+    create_csv(base_url, urls, driver, fname)
 
 
 if __name__ == '__main__':

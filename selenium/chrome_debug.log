@@ -1,0 +1,2 @@
+[21696:259:1208/201129.707329:ERROR:chrome_browser_main.cc(1079)] The use of Rosetta to run the x64 version of Chromium on Arm is neither tested nor maintained, and unexpected behavior will likely result. Please check that all tools that spawn Chromium are Arm-native.
+[21696:259:1208/201148.669558:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.
